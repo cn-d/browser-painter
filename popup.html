@@ -1,9 +1,5 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+
 <html>
   <head>
     <title>Painter</title>
@@ -24,12 +20,6 @@
       }
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-    -->
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
     <script src="popup.js"></script>
@@ -41,6 +31,24 @@
         <option value="red" selected="selected">Red</option>
         <option value="blue">Blue</option>
       </select>
+
+      <input id="weight" type="range" min="3" max="15" value="4" list="tickmarks">
+      <datalist id="tickmarks">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+        <option value="7">
+        <option value="8">
+        <option value="9">                 
+        <option value="10">
+        <option value="11">
+        <option value="12">
+        <option value="13">
+        <option value="14">                 
+        <option value="15">
+      </datalist>
+
       <button id="draw-button">Draw</button>
     </div>
   </body>

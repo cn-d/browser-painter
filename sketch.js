@@ -15,9 +15,9 @@ let paint = function(sketch) {
 
     sketch.draw = function() {
         sketch.stroke(drawConfig.color);        
-        sketch.strokeWeight(4);
+        sketch.strokeWeight(drawConfig.weight);
         if (sketch.mouseIsPressed) {
-          sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
+            sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
         }
     }
 };
