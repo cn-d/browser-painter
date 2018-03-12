@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Painter</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="p5.js"></script>
+    <script src="p5.dom.js"></script>
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <select id="dropdown">
+        <option value="red" selected="selected">Red</option>
+        <option value="blue">Blue</option>
+      </select>
+      <button id="draw-button">Draw</button>
+    </div>
+  </body>
+</html>
