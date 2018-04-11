@@ -1,9 +1,9 @@
-function getCurrentTabUrl(callback) {
+getCurrentTabUrl = (callback) => {
     let queryInfo = {
         active: true,
         currentWindow: true
     };
-  
+
     chrome.tabs.query(queryInfo, (tabs) => {
         let tab = tabs[0];
         let url = tab.url;
@@ -13,7 +13,7 @@ function getCurrentTabUrl(callback) {
 }
 
 
-function startDraw(color, weight) {
+startDraw = (color, weight) => {
     let drawConfig = {
         color: color,
         weight: weight,
@@ -22,33 +22,42 @@ function startDraw(color, weight) {
     console.log(drawConfig)
     chrome.tabs.executeScript({
         code: 'var drawConfig = ' + JSON.stringify(drawConfig)
-    }, function(){
+    }, () => {
         chrome.tabs.executeScript({
             file: "sketch.js"
         });
     });
 }
-  
+
 
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentTabUrl((url) => {
-        let dropdown = document.getElementById('dropdown'),
-            weight   = document.getElementById('weight'),
-            drawIcon = document.getElementById('draw-button');
+        const dropdown = document.getElementById('dropdown');
+        const weight   = document.getElementById('weight');
+        const colours = Array.from(document.querySelectorAll('.colour-choice'));
+        const drawIcon = document.getElementById('draw-button');
         
         drawIcon.addEventListener('click', () => {
-            console.log('trig')
-            startDraw(dropdown.value, weight.value)
+            console.log('trig');
+            startDraw(dropdown.value, weight.value);
         })
 
         dropdown.addEventListener('change', () => {
-            dropdown.value = dropdown.value
-            startDraw(dropdown.value, weight.value)
+            dropdown.value = dropdown.value;
+            startDraw(dropdown.value, weight.value);
         });
 
+        colours.forEach((colour) => {
+            colour.addEventListener('click', () => {
+                colour.dataset.colour = colour.dataset.colour;
+                console.log(colour.dataset.colour);
+                startDraw(colour.dataset.colour, weight.value);
+            });
+        })
+
         dropdown.addEventListener('change', () => {
-            weight.value = weight.value
-            startDraw(dropdown.value, weight.value)
+            weight.value = weight.value;
+            startDraw(dropdown.value, weight.value);
         });
     });
 });

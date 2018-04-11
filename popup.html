@@ -18,6 +18,27 @@
         display: flex;
         justify-content: space-between;
       }
+      
+      ul {
+        
+      }
+      li {
+        height: 15px;
+        width: 15px;
+        border-radius: 15px;
+        display: inline-block;
+        list-style-type: none;
+      }
+      [data-colour="red"] {
+        background-color: red;
+      }
+      [data-colour="blue"] {
+        background-color: blue;
+      }
+      [data-colour="black"] {
+        background-color: black;
+      }
+      
     </style>
 
     <script src="p5.js"></script>
@@ -31,6 +52,12 @@
         <option value="red" selected="selected">Red</option>
         <option value="blue">Blue</option>
       </select>
+
+      <ul>
+        <li class="colour-choice" data-colour="red"></li>
+        <li class="colour-choice" data-colour="blue"></li>
+        <li class="colour-choice" data-colour="black"></li>
+      </ul>
 
       <input id="weight" type="range" min="3" max="15" value="4" list="tickmarks">
       <datalist id="tickmarks">

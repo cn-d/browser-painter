@@ -1,7 +1,7 @@
 console.log(drawConfig)
 
-let paint = function(sketch) {
-    sketch.setup = function() {
+let paint = (sketch) => {
+    sketch.setup = () => {
         document.body.style['userSelect'] = 'none';
         let body = document.body,
             html = document.documentElement;
@@ -13,7 +13,7 @@ let paint = function(sketch) {
         sketch.clear();
     } 
 
-    sketch.draw = function() {
+    sketch.draw = () => {
         sketch.stroke(drawConfig.color);        
         sketch.strokeWeight(drawConfig.weight);
         if (sketch.mouseIsPressed) {
