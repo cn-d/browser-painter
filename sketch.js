@@ -1,19 +1,19 @@
 console.log(drawConfig)
 
-const paint = (sketch) => {
-    sketch.setup = () => {
+let paint = function(sketch) {
+    sketch.setup = function() {
         document.body.style['userSelect'] = 'none';
-        const body = document.body,
+        let body = document.body,
             html = document.documentElement;
         let docHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-        const c = sketch.createCanvas(sketch.windowWidth, docHeight);
+        let c = sketch.createCanvas(sketch.windowWidth, docHeight);
         c.position(0, 0);
         c.style('pointer-events', 'none');
         c.style('z-index', 1000);
         sketch.clear();
     } 
 
-    sketch.draw = () => {
+    sketch.draw = function() {
         sketch.stroke(drawConfig.color);        
         sketch.strokeWeight(drawConfig.weight);
         if (sketch.mouseIsPressed) {
@@ -22,4 +22,4 @@ const paint = (sketch) => {
     }
 };
 
-const painter = new p5(paint);
+let painter = new p5(paint);
