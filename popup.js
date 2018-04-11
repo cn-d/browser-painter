@@ -1,5 +1,5 @@
 getCurrentTabUrl = (callback) => {
-    let queryInfo = {
+    const queryInfo = {
         active: true,
         currentWindow: true
     };
@@ -32,32 +32,32 @@ startDraw = (color, weight) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentTabUrl((url) => {
-        const dropdown = document.getElementById('dropdown');
+        // const dropdown = document.getElementById('dropdown');
         const weight   = document.getElementById('weight');
         const colours = Array.from(document.querySelectorAll('.colour-choice'));
         const drawIcon = document.getElementById('draw-button');
         
         drawIcon.addEventListener('click', () => {
             console.log('trig');
-            startDraw(dropdown.value, weight.value);
+            startDraw(colour.dataset.colour, weight.value);
         })
 
-        dropdown.addEventListener('change', () => {
-            dropdown.value = dropdown.value;
-            startDraw(dropdown.value, weight.value);
-        });
+        // dropdown.addEventListener('change', () => {
+        //     dropdown.value = dropdown.value;
+        //     startDraw(dropdown.value, weight.value);
+        // });
 
         colours.forEach((colour) => {
             colour.addEventListener('click', () => {
                 colour.dataset.colour = colour.dataset.colour;
-                console.log(colour.dataset.colour);
+                // console.log(colour.dataset.colour);
                 startDraw(colour.dataset.colour, weight.value);
             });
         })
 
-        dropdown.addEventListener('change', () => {
-            weight.value = weight.value;
-            startDraw(dropdown.value, weight.value);
-        });
+        // dropdown.addEventListener('change', () => {
+        //     weight.value = weight.value;
+        //     startDraw(dropdown.value, weight.value);
+        // });
     });
 });
