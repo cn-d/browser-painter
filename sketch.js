@@ -3,13 +3,13 @@ console.log(drawConfig)
 let paint = function(sketch) {
     sketch.setup = function() {
         document.body.style['userSelect'] = 'none';
-        let body = document.body,
+        const body = document.body,
             html = document.documentElement;
         let docHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-        let c = sketch.createCanvas(sketch.windowWidth, docHeight);
-        c.position(0, 0);
-        c.style('pointer-events', 'none');
-        c.style('z-index', 1000);
+        let canvas = sketch.createCanvas(sketch.windowWidth, docHeight);
+        canvas.position(0, 0);
+        canvas.style('pointer-events', 'none');
+        canvas.style('z-index', 1000);
         sketch.clear();
     } 
 
@@ -22,4 +22,4 @@ let paint = function(sketch) {
     }
 };
 
-let painter = new p5(paint);
+const painter = new p5(paint);

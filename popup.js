@@ -1,5 +1,5 @@
 getCurrentTabUrl = (callback) => {
-    const queryInfo = {
+    let queryInfo = {
         active: true,
         currentWindow: true
     };
@@ -21,7 +21,7 @@ startDraw = (color, weight) => {
     };
     console.log(drawConfig)
     chrome.tabs.executeScript({
-        code: 'let drawConfig = ' + JSON.stringify(drawConfig)
+        code: 'var drawConfig = ' + JSON.stringify(drawConfig)
     }, () => {
         chrome.tabs.executeScript({
             file: "sketch.js"
@@ -34,15 +34,9 @@ let selectedWeight = () => {
     return weight.value
 }
 
-let selectedColour = () => {
-    // colours.forEach((colour) => {
-    //     colour.addEventListener('click', () => {
-    //         colour.dataset.colour = colour.dataset.colour;
-    //         // console.log(colour.dataset.colour);
-    //         // startDraw(colour.dataset.colour, weight.value);
-    //     });
-    // })
-    return 'red'
+let selectedColour = (colours) => {
+    let colour = colours.find(colour => colour.classList.contains('active'));
+    return colour.dataset.colour
 }
 
 
@@ -52,18 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const drawIcon = document.getElementById('draw-button');
         
         drawIcon.addEventListener('click', () => {
-            let colour = selectedColour();
+            let colour = selectedColour(colours);
             let weight = selectedWeight();
             startDraw(colour, weight);
         })
 
-        // colours.forEach((colour) => {
-        //     colour.addEventListener('click', () => {
-        //         colour.dataset.colour = colour.dataset.colour;
-        //         console.log(colour.dataset.colour);
-        //         startDraw(colour.dataset.colour, weight.value);
-        //     });
-        // })
+        colours.forEach((colour) => {
+            colour.addEventListener('click', () => {
+                colours.forEach((colour) => {
+                    colour.classList.remove('active')
+                });
+                colour.classList.add('active')
+            });
+        })
 
     });
 });

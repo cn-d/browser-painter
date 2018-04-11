@@ -3,45 +3,7 @@
 <html>
   <head>
     <title>Painter</title>
-    <style type="text/css">
-      body {
-        margin: 15px 15px 14px 15px;
-        white-space: nowrap;
-      }
-
-      h1 {
-        font-size: 15px;
-      }
-
-      #container {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-      }
-      
-      ul {
-        margin: 0em;
-        padding: 0em;
-      }
-      li {
-        height: 15px;
-        width: 15px;
-        border-radius: 15px;
-        display: inline-block;
-        list-style-type: none;
-      }
-      [data-colour="red"] {
-        background-color: red;
-      }
-      [data-colour="blue"] {
-        background-color: blue;
-      }
-      [data-colour="black"] {
-        background-color: black;
-      }
-      
-    </style>
-
+    <link href="style.css" rel="stylesheet">
     <script src="p5.js"></script>
     <script src="p5.dom.js"></script>
     <script src="popup.js"></script>
@@ -51,7 +13,7 @@
     <div id="container">
 
       <ul>
-        <li class="colour-choice" data-colour="red"></li>
+        <li class="colour-choice active" data-colour="red"></li>
         <li class="colour-choice" data-colour="blue"></li>
         <li class="colour-choice" data-colour="black"></li>
       </ul>

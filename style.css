@@ -1,0 +1,62 @@
+body {
+    margin: 15px 15px 14px 15px;
+    white-space: nowrap;
+}
+
+h1 {
+    font-size: 15px;
+}
+
+#container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    margin: 0em;
+    padding: 0em;
+}
+li {
+    height: 12px;
+    width: 12px;
+    border-radius: 15px;
+    display: inline-block;
+    list-style-type: none;
+}
+[data-colour] {
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+[data-colour="red"] {
+    background-color: red;
+}
+[data-colour="blue"] {
+    background-color: blue;
+}
+[data-colour="black"] {
+    background-color: black;
+}
+
+.active {
+    border: 2px solid #607d8b !important;
+}
+
+input[type="range"] {
+    width: 100px;
+    outline: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    outline: none;
+}
+
+#draw-button {
+    cursor: pointer;
+}
