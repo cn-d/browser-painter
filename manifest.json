@@ -10,10 +10,6 @@
     "default_icon": "assets/grid_logo_no_circle.png",
     "default_popup": "popup.html"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["p5.js","p5.dom.js"]
-  }],
   "permissions": [
     "activeTab",
     "storage"
