@@ -26,12 +26,9 @@ console.log(drawConfig)
 
 
 const canvas = document.createElement('canvas');
-
-canvas.addEventListener("click", function() {
-    console.log('click')
-})
 const ctx = canvas.getContext('2d');
 const body = document.body;
+body.appendChild(canvas);
 const html = document.documentElement;
 
 canvas.width = window.innerWidth;
@@ -54,6 +51,7 @@ let lastX = 0;
 let lastY = 0;
 let hue = 0;
 let direction = true;
+
 function draw(e) {
     console.log('draw')
     if (!isDrawing) return; // stop the fn from running when they are not moused down
@@ -68,6 +66,8 @@ function draw(e) {
     ctx.stroke();
     [lastX, lastY] = [e.offsetX, e.offsetY];
 }
+
+console.log(canvas)
 canvas.addEventListener('mousedown', (e) => {
     console.log('down')
     isDrawing = true;
@@ -76,4 +76,5 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
-document.body.appendChild(canvas);
+
+//manifest "js": ["p5.js","p5.dom.js"]
