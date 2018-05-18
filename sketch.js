@@ -28,7 +28,6 @@ console.log(canvas.width, canvas.height);
 
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    // Does not seem to make a difference
     ctx.scale(scale, scale)
     ctx.translate(0.5, 0.5);
 
