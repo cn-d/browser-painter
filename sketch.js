@@ -3,18 +3,14 @@
     const canvas = document.createElement('canvas');
     const body = document.body;
     const html = document.documentElement;
-    body.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    const scale = window.devicePixelRatio
+    const scale = window.devicePixelRatio;
+    let windowWidth = window.innerWidth;
+    let windowHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    let windowWidth = window.innerWidth 
-    let windowHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight )
+    body.appendChild(canvas);
 
     canvas.width = windowWidth * scale;
     canvas.height = windowHeight * scale;
-
-console.log(canvas.width, canvas.height);
-
 
     Object.assign(canvas.style, {
         position:"absolute", 
@@ -26,6 +22,7 @@ console.log(canvas.width, canvas.height);
         left: '0'
     });
 
+    const ctx = canvas.getContext('2d');
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.scale(scale, scale)
@@ -47,10 +44,12 @@ console.log(canvas.width, canvas.height);
         ctx.stroke();
         [lastX, lastY] = [e.offsetX, e.offsetY];
     }
+
     canvas.addEventListener('mousedown', (e) => {
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
     });
+    
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', () => isDrawing = false);
     canvas.addEventListener('mouseout', () => isDrawing = false);
