@@ -1,4 +1,4 @@
-getCurrentTabUrl = (callback) => {
+function getCurrentTabUrl(callback) {
     let queryInfo = {
         active: true,
         currentWindow: true
@@ -13,7 +13,7 @@ getCurrentTabUrl = (callback) => {
 }
 
 
-startDraw = (color, weight) => {
+function startDraw(color, weight) {
     let drawConfig = {
         color: color,
         weight: weight,
