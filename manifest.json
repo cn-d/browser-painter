@@ -7,7 +7,7 @@
     "128": "assets/paint_brush_128.png" 
   },
   "browser_action": {
-    "default_icon": "assets/assets/paint_brush_128.png",
+    "default_icon": "assets/paint_brush_128.png",
     "default_popup": "popup.html"
   },
   "permissions": [
