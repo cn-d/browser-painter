@@ -1,5 +1,5 @@
 body {
-    margin: 15px 15px 14px 15px;
+    margin: 10px 15px 10px 15px;
     white-space: nowrap;
 }
 
@@ -11,6 +11,10 @@ h1 {
     align-items: center;
     display: flex;
     justify-content: space-between;
+}
+
+#container div {
+    margin: 0px 4px;
 }
 
 ul {
@@ -42,11 +46,19 @@ li {
     border: 2px solid #607d8b !important;
 }
 
+label {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 11px;
+}
+
 input[type="range"] {
     width: 100px;
     outline: none;
     margin: 0 10px;
     cursor: pointer;
+    display: block;
 }
 
 input[type="range"]:focus {
@@ -59,4 +71,5 @@ input[type="range"]::-webkit-slider-thumb {
 
 #draw-button {
     cursor: pointer;
+    margin-top: 12px;
 }
