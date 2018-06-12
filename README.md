@@ -2,6 +2,8 @@
 
 Draw on webpages in Chrome. 
 
+![Alt Text](https://raw.githubusercontent.com/cn-d/browser-draw-ext/master/assets/painter.gif)
+
 ## Installation
 
 1. Download the repo
