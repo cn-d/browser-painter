@@ -30,7 +30,7 @@ function startDraw(color, weight) {
 }
 
 let selectedWeight = () => {
-    const weight = document.getElementById('weight');
+    let weight = document.getElementById('weight');
     return weight.value
 }
 
@@ -43,12 +43,13 @@ let selectedColour = (colours) => {
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentTabUrl((url) => {
         const colours = Array.from(document.querySelectorAll('.colour-choice'));
-        const drawIcon = document.getElementById('draw-button');
+        const drawIcon = document.querySelector('#draw-button');
+        const slider = document.querySelector('#weight');
         
         drawIcon.addEventListener('click', () => {
-            let colour = selectedColour(colours);
-            let weight = selectedWeight();
-            startDraw(colour, weight);
+            let selColour = selectedColour(colours);
+            let selWeight = selectedWeight();
+            startDraw(selColour, selWeight);
         })
 
         colours.forEach((colour) => {
@@ -57,8 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     colour.classList.remove('active')
                 });
                 colour.classList.add('active')
+                let selColour = selectedColour(colours);
+                let selWeight = selectedWeight();
+                startDraw(selColour, selWeight);
             });
+            
         })
 
+        slider.addEventListener("input", function() {  
+            let selColour = selectedColour(colours);
+            let selWeight = selectedWeight();
+            startDraw(selColour, selWeight);
+        });
     });
 });
