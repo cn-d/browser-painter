@@ -8,7 +8,6 @@ h1 {
 }
 
 #container {
-    align-items: center;
     display: flex;
     justify-content: space-between;
 }
@@ -59,6 +58,7 @@ input[type="range"] {
     margin: 0 10px;
     cursor: pointer;
     display: block;
+    padding-top: 1px;
 }
 
 input[type="range"]:focus {
