@@ -11,31 +11,39 @@
 
   <body>
     <div id="container">
+      <div>
+          <label>Colour:</label>
+        <ul>
+          <li class="colour-choice active" data-colour="red"></li>
+          <li class="colour-choice" data-colour="blue"></li>
+          <li class="colour-choice" data-colour="black"></li>
+        </ul>
+      </div>
 
-      <ul>
-        <li class="colour-choice active" data-colour="red"></li>
-        <li class="colour-choice" data-colour="blue"></li>
-        <li class="colour-choice" data-colour="black"></li>
-      </ul>
+      <div>
+        <label>Weight: <span id="weight-value">4</span>px</label>
+        <input id="weight" type="range" min="3" max="15" value="4" list="tickmarks">
+        <datalist id="tickmarks">
+          <option value="3">
+          <option value="4">
+          <option value="5">
+          <option value="6">
+          <option value="7">
+          <option value="8">
+          <option value="9">                 
+          <option value="10">
+          <option value="11">
+          <option value="12">
+          <option value="13">
+          <option value="14">                 
+          <option value="15">
+        </datalist>
+      </div>
 
-      <input id="weight" type="range" min="3" max="15" value="4" list="tickmarks">
-      <datalist id="tickmarks">
-        <option value="3">
-        <option value="4">
-        <option value="5">
-        <option value="6">
-        <option value="7">
-        <option value="8">
-        <option value="9">                 
-        <option value="10">
-        <option value="11">
-        <option value="12">
-        <option value="13">
-        <option value="14">                 
-        <option value="15">
-      </datalist>
-
-      <button id="draw-button">Draw</button>
+      <div>
+        <label> </label>
+        <button id="draw-button">Draw</button>
+      </div>
     </div>
   </body>
 </html>
