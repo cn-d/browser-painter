@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const colours = Array.from(document.querySelectorAll('.colour-choice'));
         const drawIcon = document.querySelector('#draw-button');
         const slider = document.querySelector('#weight');
+        const weightValue = document.querySelector('#weight-value');
         
         drawIcon.addEventListener('click', () => {
             let selColour = selectedColour(colours);
@@ -65,9 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
         })
 
-        slider.addEventListener("input", function() {  
+        slider.addEventListener("input", function() {
             let selColour = selectedColour(colours);
             let selWeight = selectedWeight();
+            weightValue.innerHTML = selWeight
             startDraw(selColour, selWeight);
         });
     });
