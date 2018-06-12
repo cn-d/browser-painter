@@ -1,4 +1,4 @@
-# Browser Draw
+# Browser Painter
 
 Draw on webpages in Chrome. 
 
