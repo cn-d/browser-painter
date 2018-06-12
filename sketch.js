@@ -7,8 +7,8 @@
     let windowWidth = window.innerWidth;
     let windowHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    body.appendChild(canvas);
-
+    
+    console.log(windowWidth)
     canvas.width = windowWidth * scale;
     canvas.height = windowHeight * scale;
 
@@ -16,12 +16,13 @@
         position:"absolute", 
         zIndex: 1000, 
         // pointerEvents: 'none',
-        height: windowHeight,
-        width: windowWidth,
+        // height: windowHeight + '!important',
+        width: windowWidth + 'px',
         top: '0',
         left: '0'
     });
 
+    body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
